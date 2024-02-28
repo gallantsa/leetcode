@@ -30,7 +30,7 @@ class Solution1 {
     }
 }
 
-class Solution {
+class Solution2 {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
         int[] ints = new int[26];
@@ -42,5 +42,22 @@ class Solution {
             if (ints[i] != 0) return false;
         }
         return true;
+    }
+}
+
+//
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        return encode(s).equals(encode(t));
+    }
+
+    // 给只有字母的字符串编码
+    private String encode(String str) {
+        char[] count = new char[26];
+        for (char c : str.toCharArray()) {
+            int delta = c - 'a';
+            count[delta]++;
+        }
+        return new String(count);
     }
 }
