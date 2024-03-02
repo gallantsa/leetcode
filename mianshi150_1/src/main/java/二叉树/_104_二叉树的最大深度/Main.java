@@ -21,7 +21,8 @@ public class Main {
  *     }
  * }
  */
-class Solution {
+// 二叉树遍历型解法
+class Solution1 {
 
     // 记录树的最大深度
     int res = 0;
@@ -47,5 +48,32 @@ class Solution {
 
         // 后序位置, 离开节点
         depth --;
+    }
+}
+
+// 拆分成子问题的解法
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+
+        int leftMax = maxDepth(root.left);
+        int rightMax = maxDepth(root.right);
+
+        return Math.max(leftMax, rightMax) + 1;
     }
 }
