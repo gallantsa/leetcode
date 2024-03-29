@@ -3,20 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>leetcode</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>org.example</groupId>
-    <artifactId>leetcode</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>mianshi150_1</module>
-        <module>hot100</module>
-        <module>newcode</module>
-        <module>Sword_Finger_Offer</module>
-        <module>hot100_2</module>
-        <module>kamaCoder</module>
-        <module>fojiao62</module>
-    </modules>
+    <artifactId>fojiao62</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
