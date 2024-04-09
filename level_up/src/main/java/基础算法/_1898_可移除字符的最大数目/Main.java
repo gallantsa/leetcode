@@ -23,18 +23,19 @@ class Solution {
             if (check(s, p, removable, mid)) l = mid;
             else r = mid;
         }
-        // 如果l指向最后一个元素, 并且以最后一个元素为结尾的字符串包含p, 就返回l + 1, 否则返回l
-        return (l == n - 1  && check(s, p, removable, l + 1)) ? l + 1 : l;
+        // 返回r, l记录的是最后一个包含子序列p的下标
+        return r;
     }
 
     /**
-     * 判断在移除 removable 中的前 mid 个元素后，字符串 s 是否包含字符串 p 作为子序列
+     * 判断在移除 removable 中的前 mid + 1 个元素后，字符串 s 是否包含字符串 p 作为子序列
      */
     private boolean check(String s, String p, int[] removable, int mid) {
         int m = s.length(), n = p.length(), i = 0, j = 0;
         // 使用 Set 来记录要移除的字符的索引
         Set<Integer> ids = new HashSet<>();
-        for (int k = 0; k < mid; ++k) {
+        // 这里改为了<=
+        for (int k = 0; k <= mid; ++k) {
             ids.add(removable[k]);
         }
         while (i < m && j < n) {
